@@ -3,11 +3,13 @@ import React from "react";
 import styles from "./Details.scss";
 import sunrise from "../../../assets/img/sunrise.svg";
 import sunset from "../../../assets/img/sunset.svg";
-import details from "../../../assets/img/details.svg";
+import detailsImg from "../../../assets/img/details.svg";
 import DetailsData from "./DetailsData";
 
 
 const Details = (props) => {
+    const details = props.details;
+
     return (
         <div className="widget__details">
             <h2>Details</h2>
@@ -15,24 +17,24 @@ const Details = (props) => {
 
                 <div className="widget__details__sun--sunrise">
                     <img src={sunrise} alt="sunrise"/>
-                    <span>TIME</span>
+                    <span>{details.sunrise}</span>
                 </div>
 
                 <div className="widget__details__sun--details">
-                    <img src={details} alt="details"/>
+                    <img src={detailsImg} alt="details"/>
                 </div>
 
                 <div className="widget__details__sun--sunset">
                     <img src={sunset} alt="sunset"/>
-                    <span>TIME</span>
+                    <span>{details.sunset}</span>
                 </div>
 
             </div>
             <div className="widget__details__data">
-                <DetailsData temp="18" title="RealFeel"/>
-                <DetailsData temp="18" title="Humidity"/>
-                <DetailsData temp="18" title="Wind"/>
-                <DetailsData temp="18" title="Pressure"/>
+                <DetailsData temp={details.feel} unit="°C" title="RealFeel"/>
+                <DetailsData temp={details.humidity} unit="%" title="Humidity"/>
+                <DetailsData temp={details.wind} unit="m/s" title="Wind"/>
+                <DetailsData temp={details.pressure} unit="hPa" title="Pressure"/>
             </div>
         </div>
     )

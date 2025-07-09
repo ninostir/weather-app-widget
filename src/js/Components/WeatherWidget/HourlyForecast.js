@@ -6,10 +6,11 @@ const HourlyForecast = (props) => {
         <div className="hourly__forecast">
             {
                 forecast.map((hour, i) => {
+                    const stateImg = "../../../assets/img/"+hour.state+".png";
                     return (
                         <div className="hourly__forecast--item" key={i}>
                             <span>{hour.hour}</span>
-                            <span>{hour.state}</span>
+                            <img src={stateImg} alt="weather state icon"/>
                             <span>{hour.temperature} C</span>
                         </div>
                     )

@@ -6,11 +6,12 @@ import Details from "./Details";
 const Widget = (props) => {
     const {city, current_temperature, state} = props.data;
     const {hourly} = props.data;
+    const {details} = props.data;
     return (
         <section className="widget__section">
             <Header city={city} temp={current_temperature} state={state}></Header>
             <HourlyForecast forecast={hourly}/>
-            <Details/>
+            <Details details={details}/>
         </section>
     )
 }
